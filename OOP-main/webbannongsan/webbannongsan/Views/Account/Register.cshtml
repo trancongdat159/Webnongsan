@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+<div class="container">
+    <h2>Đăng ký tài khoản</h2>
+
+    <form action="/Account/Register" method="post" >
+         
+        <input type="hidden" name="__RequestVerificationToken" value="TOKEN_HERE">
+
+        <div class="form-group">
+            <label for="ho">Họ:</label>
+            <input type="text" id="ho" name="FirstName" class="form-control" placeholder="Nhập họ của bạn" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ten">Tên:</label>
+            <input type="text" id="ten" name="LastName" class="form-control" placeholder="Nhập tên của bạn" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" class="form-control" placeholder="Nhập địa chỉ email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="Password" class="form-control" placeholder="Nhập mật khẩu" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Số điện thoại:</label>
+            <input type="text" id="phone" name="PhoneNumber" class="form-control" placeholder="Nhập số điện thoại" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Đăng ký</button>
+    </form>
+
+
+    <div class="alert alert-danger" style="display: none;">
+         
+    </div>
+</div>

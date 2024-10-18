@@ -1,0 +1,49 @@
+﻿@model List<webbannongsan.Models.Product>
+@using webbannongsan.Models
+
+@{
+    ViewBag.Title = "Xác nhận đơn hàng";
+    var quantities = TempData["SelectedQuantities"] as List<int>;
+    var discounts = ViewBag.Discounts as List<decimal>; // Lấy danh sách giảm giá từ ViewBag
+    var totalPrice = TempData["TotalPrice"]; // Lấy tổng giá từ ViewBag
+}
+
+<h2>Xác nhận đơn hàng</h2>
+
+@if (Model != null && Model.Any())
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        var product = Model[i];
+        var quantity = quantities[i];
+        var discountValue = discounts[i]; // Lấy giá trị giảm giá cho sản phẩm
+
+        decimal finalPrice = product.Price * (1 - discountValue);
+        decimal productTotalPrice = finalPrice * quantity;
+
+        <div class="product-item">
+            <img class="product-image" style="width:50px" src="~/image/product/@product.Image" alt="Product Image" />
+            <div class="product-details">
+                <p class="product-name">@product.ProductName</p>
+                <p class="product-quantity">Số lượng: @quantity</p>
+                <p class="product-price">Giá: @finalPrice.ToString("#,0") VND</p>
+                <p class="total-price">Tổng: @productTotalPrice.ToString("#,0") VND</p>
+            </div>
+        </div>
+    }
+
+    <p>Tổng tiền của đơn hàng: @totalPrice.ToString("#,0") VND</p>
+}
+else
+{
+    <p>Không có sản phẩm nào được chọn.</p>
+}
+
+<a href="@Url.Action("CartIndex")">Quay lại giỏ hàng</a>
+<button type="button" onclick="confirmOrder()" class="confirm-button">Xác nhận đặt hàng</button>
+
+<script>
+    function confirmOrder() {
+        alert("Đơn hàng của bạn đã được xác nhận!");
+    }
+</script>

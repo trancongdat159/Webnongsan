@@ -1,0 +1,117 @@
+﻿@model List<webbannongsan.Models.Product>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <script type="text/javascript">
+        alert('@Html.Raw(TempData["SuccessMessage"])');
+    </script>
+}
+
+
+<h2>Danh Sách Sản Phẩm</h2>
+<div>
+    <form class="filter-product">
+        <div class="filter-section">
+            <label for="price-range">Khoảng giá</label>
+            <select id="price-range" name="priceRange">
+                <option value="all">Tất cả</option>
+                <option value="0-100000">Dưới 100,000</option>
+                <option value="100000-500000">100,000 - 500,000</option>
+                <option value="500000-1000000">500,000 - 1,000,000</option>
+                <option value="1000000-2000000">1,000,000 - 2,000,000</option>
+                <option value="2000000-9000000">Trên 2,000,000</option>
+            </select>
+        </div>
+        <div class="filter-section">
+            <label for="category">Danh mục</label>
+            <select id="category" name="category">
+                <option value="all">Tất cả</option>
+                @foreach (var category in @ViewBag.categories)
+                {
+                    <option>@category.Name</option>
+                }
+            </select>
+        </div>
+        <div class="filter-section">
+            <h2>Giảm giá</h2>
+            <label for="all-produt">
+                <input type="radio" value="null" name="discount" id="all-produt" />
+                <span>Tất cả</span>
+            </label>
+            <br />
+            <label for="discount-20">
+                <input type="radio" value="27" name="discount" id="discount-20" />
+                <span>20%</span>
+            </label>
+            <br />
+            <label for="discount-30">
+                <input type="radio" value="30" name="discount" id="discount-30" />
+                <span>30%</span>
+            </label>
+            <br />
+            <label for="discount-40">
+                <input type="radio" value="31" name="discount" id="discount-40" />
+                <span>40%</span>
+            </label>
+            <br />
+            <label for="discount-50">
+                <input type="radio" value="28" name="discount" id="discount-50" />
+                <span>50%</span>
+            </label>
+        </div>
+        <button class="filter-section" type="submit">Lọc Sản Phẩm</button>
+        <a href="/Admin/ProductAdmin/CreateProduct"> Thêm mới</a>
+    </form>
+
+</div>
+<div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="text-align:center">ProductID</th>
+                <th style="text-align:center">Hình ảnh</th>
+                <th style="text-align:center">Tên sản phẩm</th>
+                <th style="text-align:center">Giá bán</th>
+                <th style="text-align:center;width:100px">Số lượng</th>
+                <th style="text-align:center;width:100px">Đơn vị</th>
+                <th style="text-align:center">Ngày sản xuất</th>
+                <th style="text-align:center">Mô tả</th>
+                <th style="text-align:center">Danh mục</th>
+                <th style="text-align:center">Giảm giá</th>
+                <th style="text-align:center"></th>
+
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.ProductID</td>
+                    <td><img src="~/image/product/@item.Image" style="height:50px;" /></td>
+                    <td>@item.ProductName</td>
+                    <td style="text-align:right">@item.Price.ToString("#,0")</td>
+                    <td style="text-align: right">@item.Quantity</td>
+                    <td style="text-align: right">@item.Unit</td>
+                    <td style="text-align: right">@item.PostingDate</td>
+                    <td>@item.Detail</td>
+                    <td>@item.CategoryID</td>
+                    <td>@item.CouponID</td>
+                    <td>
+                        <a href="/Admin/ProductAdmin/UpdateProduct?id=@item.ProductID">Sửa</a>
+                        <a href="/Admin/ProductAdmin/DeleteProduct?id=@item.ProductID">Xóa</a>
+                        <a href="/Admin/ProductAdmin/UpdateImageProduct?id=@item.ProductID">Thêm ảnh</a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        }
+
+    </table>
+</div>
+
+

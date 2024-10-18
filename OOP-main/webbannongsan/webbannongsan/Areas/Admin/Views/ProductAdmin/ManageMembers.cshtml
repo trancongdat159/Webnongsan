@@ -1,0 +1,26 @@
+﻿@model List<webbannongsan.Models.Account>
+
+<h2>Quản lý thành viên</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Email</td>
+                <td>@member.RoleID</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = member.AccountID })">Sửa</a> |
+                    <a href="@Url.Action("Delete", new { id = member.AccountID })" onclick="return confirm('Bạn có chắc muốn xóa?');">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
