@@ -27,16 +27,14 @@ namespace webbannongsan.Controllers
 
             foreach (var cart in carts)
             {
-                Product product = DB.Products.Where(i => i.ProductID == cart.ProductID).FirstOrDefault();
+                Product product = DB.Products.FirstOrDefault(i => i.ProductID == cart.ProductID);
                 if (product != null)
                 {
                     products.Add(product);
                     cartQuantity.Add(cart.Quantity);
 
-                    // Tính giá sau khi giảm giá
                     var discountValue = GetDiscountForProduct(product.ProductID);
                     var finalPrice = product.Price * (1 - discountValue);
-
                     sumPrice += (float)(finalPrice * cart.Quantity);
                 }
             }
@@ -46,33 +44,6 @@ namespace webbannongsan.Controllers
             return View(products);
         }
 
-        [HttpPost]
-        public ActionResult CartIndex(int ProductID)
-        {
-            var Ac = (Account)Session["Account"];
-            if (Ac == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
-            var cartTemp = DB.Carts.FirstOrDefault(i => i.ProductID == ProductID && i.AccountID == Ac.AccountID);
-            if (cartTemp == null)
-            {
-                Cart newCart = new Cart
-                {
-                    ProductID = ProductID,
-                    AccountID = Ac.AccountID,
-                    Quantity = 1
-                };
-
-                DB.Carts.Add(newCart);
-                DB.SaveChanges();
-            }
-
-            return RedirectToAction("CartIndex");
-        }
-
-        // Phương thức lấy giá trị giảm giá
         public decimal GetDiscountForProduct(int productId)
         {
             var product = DB.Products.FirstOrDefault(p => p.ProductID == productId);
@@ -81,6 +52,7 @@ namespace webbannongsan.Controllers
             var coupon = DB.Coupons.FirstOrDefault(c => c.CouponID == product.CouponID);
             return coupon != null ? (decimal)coupon.Discount : 0;
         }
+
         [HttpPost]
         public ActionResult UpdateCart(int[] selectedProducts, int[] quantity)
         {
@@ -94,11 +66,9 @@ namespace webbannongsan.Controllers
             var carts = DB.Carts.Where(i => i.AccountID == AcID).ToList();
             float sumPrice = 0;
 
-            List<Coupon> Coupon= DB.Coupons.Where(i=>i.AccountID== Ac.AccountID).ToList();
+            List<Coupon> Coupon = DB.Coupons.Where(i => i.AccountID == Ac.AccountID).ToList();
             ViewBag.Coupon = Coupon;
-            
 
-            // Danh sách sản phẩm đã chọn
             List<Product> selectedItems = new List<Product>();
             List<int> selectedQuantities = new List<int>();
 
@@ -114,35 +84,91 @@ namespace webbannongsan.Controllers
                         var finalPrice = product.Price * (1 - discountValue);
                         sumPrice += (float)(finalPrice * quantity[i]);
 
-                        // Lưu sản phẩm và số lượng vào danh sách
                         selectedItems.Add(product);
                         selectedQuantities.Add(quantity[i]);
                     }
                 }
             }
 
-            var discounts = DB.Coupons.Select(c => c.Discount).ToList();
-            // Lưu danh sách sản phẩm và số lượng vào TempData
             ViewBag.SelectedItems = selectedItems;
             ViewBag.SelectedQuantities = selectedQuantities;
-            ViewBag.TotalPrice = sumPrice; // Cập nhật tổng giá
-            ViewBag.SumPrice = sumPrice; // Lưu vào ViewBag để truyền sang View
-
-
-
-
-
-
-
-
-
+            ViewBag.TotalPrice = sumPrice;
+            ViewBag.SumPrice = sumPrice;
 
             return View(); // Chuyển đến trang xác nhận đơn hàng
-
         }
 
+        [HttpPost]
+       
+        public ActionResult ConfirmOrder(string deliveryAddress, float totalPrice)
+        {
+            var Ac = (Account)Session["Account"];
+
+            //// Kiểm tra xem Ac có khác null không
+            //if (Ac == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
+
+            //// Kiểm tra xem AccountID có hợp lệ không
+            //if (Ac.AccountID <= 0)
+            //{
+            //    // Xử lý nếu AccountID không hợp lệ, có thể là redirect hoặc thông báo lỗi
+            //    return RedirectToAction("Index", "Home");
+            //}
+
+            //// Kiểm tra totalPrice có khác null không
+            //if (!totalPrice.HasValue)
+            //{
+            //    // Xử lý nếu totalPrice không có giá trị
+            //    return RedirectToAction("Index", "Home");
+            //}
+           
+            Order newOrder = new Order
+            {
+                AccountID = Ac.AccountID,
+                DefaultAddress = deliveryAddress,
+                OrderTime = DateTime.Now,
+                DeliveryTime = DateTime.Now.AddDays(3),
+                StatusOrder = 2,
+                Price = (decimal)totalPrice // Sử dụng totalPrice.Value vì nó đã được kiểm tra  
+            };
+
+            DB.Orders.Add(newOrder);
+            DB.SaveChanges();
+
+            // Lấy OrderID vừa tạo để lưu OrderDetails
+            var orderId = newOrder.OrderID;
+
+            // Lưu các chi tiết đơn hàng
+            var selectedProducts = Request.Form["selectedProducts"].Split(',');
+            var quantities = Request.Form["quantities"].Split(',');
+            var coupon = DB.Coupons.FirstOrDefault(c => c.AccountID == Ac.AccountID);
 
 
+            for (int i = 0; i < selectedProducts.Length; i++)
+            {
+                OrderDetail orderDetail = new OrderDetail
+                {
+                    OrderID = orderId,
+                    ProductID = int.Parse(selectedProducts[i]),
+                    Quantity = int.Parse(quantities[i]),
+                    Coupon=(coupon.Discount)
+                };
+                DB.OrderDetails.Add(orderDetail);
+            }
 
+            
+            
+            DB.SaveChanges();
+            
+
+            var orders = DB.Orders.Where(o => o.AccountID == Ac.AccountID).ToList(); // Lấy danh sách các đơn hàng của tài khoản
+            return View(orders); // Truyền danh sách đơn hàng tới View
+
+           
+        }
+
+       
     }
 }

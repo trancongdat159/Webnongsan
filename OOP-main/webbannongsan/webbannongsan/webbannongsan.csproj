@@ -295,8 +295,8 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ConfirmOTP.cshtml" />
-    <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\UpdateCart.cshtml" />
+    <Content Include="Views\Cart\ConfirmOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

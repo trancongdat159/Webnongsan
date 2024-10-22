@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\views\\cart\\updatecart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|solutionrelative:webbannongsan\\views\\cart\\updatecart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|solutionrelative:webbannongsan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|c:\\users\\ledin\\desktop\\oop-main\\webbannongsan\\webbannongsan\\views\\cart\\confirmorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|solutionrelative:webbannongsan\\views\\cart\\confirmorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|solutionrelative:webbannongsan\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B3D264AB-6B83-4413-8437-11ABD9F51E10}|webbannongsan\\webbannongsan.csproj|solutionrelative:webbannongsan\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,42 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateCart.cshtml",
-              "DocumentMoniker": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Cart\\UpdateCart.cshtml",
-              "RelativeDocumentMoniker": "webbannongsan\\Views\\Cart\\UpdateCart.cshtml",
-              "ToolTip": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Cart\\UpdateCart.cshtml",
-              "RelativeToolTip": "webbannongsan\\Views\\Cart\\UpdateCart.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAADgvy8AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-18T09:52:01.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "webbannongsan\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Controllers\\CartController.cs",
-              "RelativeToolTip": "webbannongsan\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAgwGEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:22:38.802Z",
+              "Title": "ConfirmOrder.cshtml",
+              "DocumentMoniker": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Cart\\ConfirmOrder.cshtml",
+              "RelativeDocumentMoniker": "webbannongsan\\Views\\Cart\\ConfirmOrder.cshtml",
+              "ToolTip": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Cart\\ConfirmOrder.cshtml",
+              "RelativeToolTip": "webbannongsan\\Views\\Cart\\ConfirmOrder.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAowBsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T08:20:23.87Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "webbannongsan\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "webbannongsan\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-18T02:43:26.968Z",
+              "WhenOpened": "2024-10-21T07:24:46.555Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "webbannongsan\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\ledin\\Desktop\\OOP-main\\webbannongsan\\webbannongsan\\Controllers\\CartController.cs",
+              "RelativeToolTip": "webbannongsan\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAuwKgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T06:23:10.481Z"
             }
           ]
         }

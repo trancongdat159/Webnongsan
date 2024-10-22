@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "ConfirmOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<webbannongsan.Models.Order>
+
+<h2>Lịch sử đơn hàng</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt hàng</th>
+                <th>Địa chỉ giao hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>@order.OrderTime.ToString("dd/MM/yyyy")</td>
+                    <td>@order.DefaultAddress</td>
+                    <td>@order.Price VND</td> 
+                    <td>
+                        @switch (order.StatusOrder)
+                        {
+                            case 1:<text>Đang xử lý</text>; break;
+                        case 2: <text>Đã giao hàng</text>; break;
+                    default: <text>Đang chờ</text>; break;
+            }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Bạn chưa có đơn hàng nào.</p>
+}

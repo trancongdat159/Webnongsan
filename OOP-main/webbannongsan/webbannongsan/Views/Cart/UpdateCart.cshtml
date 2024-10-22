@@ -7,46 +7,51 @@
 
 <h2>Cập nhật giỏ hàng</h2>
 
-<!-- Hiển thị danh sách sản phẩm đã chọn -->
-@for (int i = 0; i < selectedItems.Count; i++)
+<!-- Form cập nhật giỏ hàng -->
+@using (Html.BeginForm("ConfirmOrder", "Cart", FormMethod.Post)) // Thay đổi phương thức thành ConfirmOrder
 {
-    var product = selectedItems[i];
-    var quantity = selectedQuantities[i];
+    <!-- Hiển thị danh sách sản phẩm đã chọn -->
+    for (int i = 0; i < selectedItems.Count; i++)
+    {
+        var product = selectedItems[i];
+        var quantity = selectedQuantities[i];
 
-    <div class="product-item">
-        <img class="product-image" style="width:50px" src="~/image/product/@product.Image" alt="Product Image" />
-        <div class="product-details">
-            <p class="product-name">@product.ProductName</p>
-            <p class="product-quantity">
-                Số lượng:
-                <input type="number" value="@quantity" class="quantity-input" min="1" disabled /> <!-- Đặt disabled để không cho chỉnh sửa -->
-            </p>
-            <p class="product-price">Giá: @product.Price.ToString("#,0") VND</p>
+        <div class="product-item">
+            <img class="product-image" style="width:50px" src="~/image/product/@product.Image" alt="Product Image" />
+            <div class="product-details">
+                <p class="product-name">@product.ProductName</p>
+                <p class="product-quantity">
+                    Số lượng:
+                    <input type="number" value="@quantity" class="quantity-input" min="1" disabled /> <!-- Đặt disabled để không cho chỉnh sửa -->
+                </p>
+                <p class="product-price">Giá: @product.Price.ToString("#,0") VND</p>
+                <!-- Thêm input cho ProductID -->
+                @Html.Hidden("selectedProducts", product.ProductID)
+                @Html.Hidden("quantities", quantity) <!-- Thêm số lượng -->
+            </div>
         </div>
+    }
+
+    <!-- Hiển thị tổng tiền -->
+    <p>Tổng tiền: <span id="total-value" >@totalPrice.ToString("#,0")</span> VND</p>
+    <input type="hidden" id="totalPrice" name="totalPrice" value="@totalPrice" />
+    <!-- Thêm ô nhập địa chỉ nhận -->
+    <div class="address-input">
+        <label for="delivery-address">Địa chỉ nhận:</label>
+        <input type="text" id="delivery-address" name="deliveryAddress" placeholder="Nhập địa chỉ nhận" required />
     </div>
+
+    <!-- Thêm ô nhập mã giảm giá -->
+    <div class="coupon-input">
+        <label for="coupon-code">Mã giảm giá:</label>
+        <select name="couponCode">
+            <option>Không mã giảm giá</option>
+            @foreach (var coupon in ViewBag.Coupon)
+            {
+                <option value="@coupon.CouponID">@coupon.Discount * 100 %</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit">Thanh toán</button>
 }
-
-<!-- Hiển thị tổng tiền -->
-<p>Tổng tiền: <span id="total-value">@totalPrice.ToString("#,0")</span> VND</p>
-
-<!-- Thêm ô nhập địa chỉ nhận -->
-<div class="address-input">
-    <label for="delivery-address">Địa chỉ nhận:</label>
-    <input type="text" id="delivery-address" name="delivery-address" placeholder="Nhập địa chỉ nhận" required />
-</div>
-
-<!-- Thêm ô nhập mã giảm giá -->
-<div class="coupon-input">
-    <label for="coupon-code">Mã giảm giá:</label>
-    <select>
-        <option>Không mã giảm giá</option>
-        @foreach(var i in ViewBag.Coupon)
-        {
-            <option> @(i.Discount*100) %</option>
-
-        }
-    </select>
-</div>
-
-
-<button type="submit">Thanh toán</button>

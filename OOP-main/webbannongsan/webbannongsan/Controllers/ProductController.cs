@@ -65,7 +65,7 @@ namespace webbannongsan.Controllers
                 // Tính giá đã giảm
                 var discountedPrice = product.Price * (1 - discountValue);
                 discountedPrices.Add(discountedPrice); // Thêm giá đã giảm vào danh sách
-                product.DiscountedPrice = discountedPrice; // Cập nhật giá đã giảm trong model
+                //product.DiscountedPrice = discountedPrice; // Cập nhật giá đã giảm trong model
             }
 
             // Lưu giá đã giảm vào ViewBag
