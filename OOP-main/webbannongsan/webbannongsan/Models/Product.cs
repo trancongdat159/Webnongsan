@@ -34,6 +34,7 @@ namespace webbannongsan.Models
         public int CategoryID { get; set; }
         public Nullable<int> CouponID { get; set; }
         public int AccountID { get; set; }
+        public Nullable<decimal> DiscountedPrice { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -131,14 +131,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AddressProfile.css">
+      <DependentUpon>AddressProfile.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\AddressProfile.min.css">
+      <DependentUpon>AddressProfile.css</DependentUpon>
+    </Content>
+    <Content Include="Content\CartIndex.css">
+      <DependentUpon>CartIndex.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\CartIndex.min.css">
+      <DependentUpon>CartIndex.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ComfirmPassword.css">
+      <DependentUpon>ComfirmPassword.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ComfirmPassword.min.css">
+      <DependentUpon>ComfirmPassword.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ConfirmOTP.css">
+      <DependentUpon>ConfirmOTP.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ConfirmOTP.min.css">
+      <DependentUpon>ConfirmOTP.css</DependentUpon>
+    </Content>
+    <Content Include="Content\DetailProduct.css">
+      <DependentUpon>DetailProduct.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\DetailProduct.min.css">
+      <DependentUpon>DetailProduct.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ForgotPassword.css">
+      <DependentUpon>ForgotPassword.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ForgotPassword.min.css">
+      <DependentUpon>ForgotPassword.css</DependentUpon>
+    </Content>
     <Content Include="Content\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="Content\input.css" />
+    <Content Include="Content\output.css" />
     <Content Include="Content\product.css">
       <DependentUpon>product.scss</DependentUpon>
     </Content>
     <Content Include="Content\product.min.css">
       <DependentUpon>product.css</DependentUpon>
+    </Content>
+    <Content Include="Content\profile.css">
+      <DependentUpon>profile.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\profile.min.css">
+      <DependentUpon>profile.css</DependentUpon>
     </Content>
     <Content Include="Content\stylelayout.css" />
     <Content Include="Content\stylelayout.min.css">
@@ -146,6 +190,18 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\UpdateAddress.css">
+      <DependentUpon>UpdateAddress.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\UpdateAddress.min.css">
+      <DependentUpon>UpdateAddress.css</DependentUpon>
+    </Content>
+    <Content Include="Content\UpdatePassword.css">
+      <DependentUpon>UpdatePassword.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\UpdatePassword.min.css">
+      <DependentUpon>UpdatePassword.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="image\cart.png" />
     <Content Include="image\heart.png" />
@@ -162,94 +218,102 @@
     <Content Include="image\product\Snack_rong_bien.png" />
     <Content Include="image\product\TaoMy.png" />
     <Content Include="image\product\vietquoc.png" />
+    <Content Include="image\send.png" />
     <Content Include="image\star.png" />
     <Content Include="image\user.png" />
-    <Content Include="Models\Model1webnongsan.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1webnongsan.edmx</DependentUpon>
-      <LastGenOutput>Model1webnongsan.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1webnongsan.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1webnongsan.edmx</DependentUpon>
-      <LastGenOutput>Model1webnongsan.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerAccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerCouponController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagerOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
+    <Compile Include="Areas\Admin\Data\DailyStatistic.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Data\OrderDetailViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Coupon.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\District.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Feedback.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MapAccount.cs" />
-    <Compile Include="Models\Model1webnongsan.Context.cs">
+    <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1webnongsan.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1webnongsan.cs">
+    <Compile Include="Models\Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1webnongsan.Designer.cs">
+    <Compile Include="Models\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1webnongsan.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Province.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ward.cs">
-      <DependentUpon>Model1webnongsan.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -263,7 +327,17 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\ProductAdmin\UpdateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\ProductAdmin\UpdateImageProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductAdmin\ManageMembers.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerAccount\ListAccount.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerAccount\UpdateAccount.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerAccount\UpdateImage.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCategory\ListCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCategory\CreateCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCategory\UpdateCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCoupon\ListCoupon.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCoupon\CreateCoupon.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerCoupon\UpdateCoupon.cshtml" />
+    <Content Include="Areas\Admin\Views\ManagerOrder\ListOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistics\OrderStatusStatistics.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -272,12 +346,21 @@
     <Content Include="Content\index.scss" />
     <Content Include="Content\Site.scss" />
     <Content Include="Content\product.scss" />
-    <EntityDeploy Include="Models\Model1webnongsan.edmx">
+    <Content Include="Content\profile.scss" />
+    <Content Include="Content\AddressProfile.scss" />
+    <Content Include="Content\UpdateAddress.scss" />
+    <Content Include="Content\UpdatePassword.scss" />
+    <Content Include="Content\ConfirmOTP.scss" />
+    <Content Include="Content\ForgotPassword.scss" />
+    <Content Include="Content\ComfirmPassword.scss" />
+    <Content Include="Content\DetailProduct.scss" />
+    <Content Include="Content\CartIndex.scss" />
+    <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1webnongsan.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1webnongsan.edmx.diagram">
-      <DependentUpon>Model1webnongsan.edmx</DependentUpon>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -291,10 +374,16 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Cart\CartIndex.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\AddressProfile.cshtml" />
+    <Content Include="Views\Account\CreateAddress.cshtml" />
+    <Content Include="Views\Account\UpdateAddress.cshtml" />
+    <Content Include="Views\Account\UpdatePassword.cshtml" />
+    <Content Include="Views\Order\OrderProduct.cshtml" />
+    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ConfirmOTP.cshtml" />
+    <Content Include="Views\Account\ComfirmPassword.cshtml" />
+    <Content Include="Views\Account\OrderCustomer.cshtml" />
     <Content Include="Views\Cart\UpdateCart.cshtml" />
     <Content Include="Views\Cart\ConfirmOrder.cshtml" />
     <None Include="Web.Debug.config">
@@ -306,7 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

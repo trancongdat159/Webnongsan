@@ -11,7 +11,8 @@ namespace webbannongsan.Areas.Admin.Controllers
     public class ProductAdminController : Controller
     {
         // GET: Admin/Product
-        DB_TadEntities DB =new DB_TadEntities();
+        DB_TadEntities DB = new DB_TadEntities();
+        
         public ActionResult Index()
         {
             return View();
@@ -74,10 +75,20 @@ namespace webbannongsan.Areas.Admin.Controllers
             Product product = DB.Products.Find(id);
             var categoryProductID= DB.Categories.FirstOrDefault(i=>i.CategoryID==product.CategoryID);
             ViewBag.categoryName = categoryProductID.Name;
+            ViewBag.coupons = DB.Coupons.ToList();
+            Coupon couponTemp= DB.Coupons.FirstOrDefault(i=>i.CouponID==product.CouponID);
+            if (couponTemp != null)
+            {
+                ViewBag.couponName = couponTemp.Name;
+            }
+            else
+            {
+                ViewBag.couponName ="0";
+            }
             return View(product);
         }
         [HttpPost]
-        public ActionResult UpdateProduct(Product productnew,string categoryname)
+        public ActionResult UpdateProduct(Product productnew,string categoryname,int ?CouponID)
         {
             ViewBag.categories = DB.Categories.ToList();
             Product product = DB.Products.Find(productnew.ProductID);
@@ -87,6 +98,11 @@ namespace webbannongsan.Areas.Admin.Controllers
             product.Detail = productnew.Detail;
             product.PostingDate= productnew.PostingDate;
             product.Unit= productnew.Unit;
+            if (CouponID == 0)
+            {
+                product.CouponID = null;
+            }
+            product.CouponID =CouponID;
             var categoryTemp = DB.Categories.FirstOrDefault(i => i.Name == categoryname);
             product.CategoryID= categoryTemp.CategoryID;
             DB.SaveChanges();
@@ -153,27 +169,5 @@ namespace webbannongsan.Areas.Admin.Controllers
 
             return newId;
         }
-
-
-        /// mới
-        // Phương thức hiển thị trang quản lý thành viên cho quản trị viên
-        public ActionResult ManageMembers()
-        {
-            // Kiểm tra xem người dùng đã đăng nhập và có quyền quản trị viên không
-            var user = Session["Account"] as Account;
-
-            if (user == null || user.RoleID != "ADMIN")
-            {
-                // Nếu người dùng chưa đăng nhập hoặc không phải quản trị viên, chuyển hướng đến trang đăng nhập
-                return RedirectToAction("Login");
-            }
-
-            // Lấy danh sách tất cả tài khoản từ cơ sở dữ liệu
-            var members = DB.Accounts.ToList();
-
-            // Trả về view với danh sách tài khoản để hiển thị
-            return View(members);
-        }
-
     }
 }

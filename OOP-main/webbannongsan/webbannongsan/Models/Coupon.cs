@@ -28,6 +28,7 @@ namespace webbannongsan.Models
         public string Detail { get; set; }
         public bool Status { get; set; }
         public int AccountID { get; set; }
+        public Nullable<int> ProductID { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

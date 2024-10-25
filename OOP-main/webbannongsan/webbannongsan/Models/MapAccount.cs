@@ -8,7 +8,7 @@ namespace webbannongsan.Models
 {
     public class MapAccount
     {
-        DB_TadEntities DB = new DB_TadEntities();
+         DB_TadNongSanEntities DB = new DB_TadNongSanEntities();
             
     }
 }

@@ -8,7 +8,7 @@
     <form class="filter-product" method="get" action="~/Product/Product">
         <div class="filter-section">
             <label for="price-range">Khoảng giá</label>
-            <select id="price-range" name="priceRange">
+            <select id="price-range" name="priceRange" style="border-radius:5px;border:1px solid black;">
                 <option value="all">Tất cả</option>
                 <option value="0-100000">Dưới 100,000</option>
                 <option value="100000-500000">100,000 - 500,000</option>
@@ -19,7 +19,7 @@
         </div>
         <div class="filter-section">
             <label for="category">Danh mục</label>
-            <select id="category" name="category">
+            <select id="category" name="category" style="border-radius:5px;border:1px solid black;">
                 <option value="all">Tất cả</option>
                 @foreach (var category in ViewBag.categories)
                 {

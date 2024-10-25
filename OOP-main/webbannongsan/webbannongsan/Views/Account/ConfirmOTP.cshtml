@@ -1,13 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "ConfirmOTP";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Xác Nhận OTP</h2>
-
-<form action="/Account/ConfirmOTP" method="post">
-    <label for="otp">Nhập mã OTP:</label>
-    <input type="text" id="otp" name="otp" required />
-    <button type="submit">Xác Nhận</button>
+<form method="post" action="/Account/ConfirmOTP">
+    <h2>Nhập mã OTP</h2>
+    <input type="text" name="otp" placeholder="Nhập OTP của bạn" />
+    <p>@ViewBag.erorr</p>
+    <button>Xác nhập</button>
 </form>
+<link href="~/Content/ConfirmOTP.min.css" rel="stylesheet" />

@@ -172,7 +172,7 @@
                     </p>
                     <div class="product-actions">
                         <form method="get" action="~/Product/DetailProduct">
-                            <button type="submit" name="detailPrID" value="@item.ProductID">Chi tiết</button>
+                            <button type="submit" name="ProductID" value="@item.ProductID">Chi tiết</button>
                         </form>
                         <form method="post" action="/Cart/CartIndex?ProductID=@item.ProductID">
                             <button type="submit" name="ProductID" value="@item.ProductID">Mua ngay</button>

@@ -3,22 +3,16 @@
     ViewBag.Title = "UpdateImageProduct";
 }
 
-
-
-<form class="form-horizontal" method="post" action="/Admin/ProductAdmin/UpdateImageProduct" enctype="multipart/form-data">
+<form class="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg" method="post" action="/Admin/ProductAdmin/UpdateImageProduct" enctype="multipart/form-data">
     @Html.HiddenFor(m => m.ProductID)
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="ProductImage">Thêm hình ảnh</label>
-        <div class="col-sm-10">
-            <input type="file" class="form-control" id="ProductImage" name="ProductImage" >
-        </div>
-    </div>
-    
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <p>@ViewBag.error</p>
-            <button type="submit" class="btn btn-default">Lưu</button>
-        </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="ProductImage">Thêm hình ảnh:</label>
+        <input type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ProductImage" name="ProductImage">
+    </div>
+
+    <div class="mb-6">
+        <p class="text-red-500">@ViewBag.error</p>
+        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">Lưu</button>
     </div>
 </form>
